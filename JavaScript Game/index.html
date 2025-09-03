@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" itemscope itemtype="https://schema.org/WebPage" prefix="og:http://ogp.me/ns#">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>JS Snake Game</title>
+
+    <link rel="canonical" href="https://moderntemplate.site/" />
+    <link rel="amphtml" href="https://moderntemplate.site/amp/index.html" />
+    <link rel="icon" type="image/png" href="./img/icons/64x64.png" />
+    <link rel="manifest" href="./manifest.json" />
+
+    <!-- General -->
+    <meta name="application-name" content="JS Snake Game" />
+    <meta name="author" content="Artem Bieliavtsev" />
+    <meta name="description" content="Modern JS Snake Game" />
+    <meta name="keywords" content="modern, useful, html, html5, css, css3, javascript, js, game, Snake " />
+    <meta name="referrer" content="strict-origin" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="normalize.min.css" />
+    <link rel="preload" href="style.css" as="style" />
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="preload" href="script.js" as="script" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header>
+        <div class="title">
+          <img class="logo" src="snake-game-ai-gen.png" alt="" />
+          <h1>JS Snake Game</h1>
+        </div>
+        <div class="clocks">
+          <time
+            >NY: <b class="t-2" data-timezone="America/New_York"><clock></clock>⏰</b></time
+          >
+          <time
+            >Kyiv: <b class="t-2" data-timezone="Europe/Kyiv"><clock></clock>⏰</b></time
+          >
+          <time
+            >Tokyo: <b class="t-2" data-timezone="Asia/Tokyo"><clock></clock>⏰</b></time
+          >
+        </div>
+      </header>
+
+      <main>
+        <div class="scores">
+          <div class="current">Current: 000</div>
+          <div class="last" id="highScore">Last: 000</div>
+        </div>
+        <div class="retro-frame">
+          <div class="retro-frame2">
+            <div class="retro-frame3">
+              <div id="retro-board"></div>
+            </div>
+          </div>
+        </div>
+        <div class="button">
+          <a id="instruction" href="#">Play game</a>
+        </div>
+      </main>
+
+      <footer>
+        <p>
+          &copy; 2025. All rights reserved
+          <a href="https://github.com/JadeShopKeepr" target="_blank" rel="noopener"> Artem Bieliavstev </a>
+        </p>
+        <p>Licensed under ME</p>
+      </footer>
+    </div>
+    <script src="https://moment.github.io/luxon/global/luxon.min.js"></script>
+    <script src="script.js"></script>
+    <script src="time.js"></script>
+  </body>
+</html>

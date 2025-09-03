@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+:root {
+   --white: #ffffff;
+   --black: #000000;
+   --retro-bg-dark: #0b0b0f;        
+  --retro-orange: #FF6A00;        
+  --retro-orange-dark: #cc4f00;    
+  --accent-teal: #00c2a8;          
+  --off-white: #F3F2EE;            
+  --pixel-gap: 4px;               
+  --frame-padding: 28px;
+  --glass-opacity: 0.04;
+  --scanline-opacity: 0.035;
+ }
+ *,
+ *::before,
+ *::after {
+   padding: 0;
+   margin: 0;
+   box-sizing: inherit;
+ }
+ html {
+   font-family: "IBM Plex Mono", monospace;
+   box-sizing: border-box;
+   height: 100%;
+   width: 100%;
+   scroll-behavior: smooth;
+ }
+
+ header {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   align-items: center;
+   height: 100px;
+   margin-bottom: 3%;
+ }
+
+ body {
+   height: 100%;
+   width: 100%;
+   font-family: var(--font-stack);
+   background-color: #ddeb9d73;
+ }
+ main {
+   flex: 1 1 auto;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+ }
+
+ footer {
+   height: auto;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+   align-items: bottom;
+ }
+ img {
+   max-width: 100%;
+   height: auto;
+ }
+ 
+
+ .visually-hidden {
+   position: absolute;
+   width: 1px;
+   height: 1px;
+   margin: -1px;
+   border: 0;
+   padding: 0;
+   clip: rect(0 0 0 0);
+   overflow: hidden;
+ }
+
+.wrappper {
+   min-height: 100%;
+   display: flex;
+   flex-direction: column;
+}
+.title{
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-weight: bold;
+}
+.logo{
+   height: 100px;
+   padding-right: 3%;
+}
+
+ .clocks{
+   font-size: large;
+ }
+
+ .scores{
+   width: 40%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   font-size: medium;
+   font-weight: 800;
+   color: #595f43 ;
+   padding-bottom: 3%;
+ }
+
+ .retro-frame{
+   border: #595f43, solid, 10px;
+   border-radius: 30px;
+   box-shadow: inset 0 0 0 10px #595f43;
+ }
+
+
+ .retro-frame2{
+   border: #abb78a, solid, 10px;
+   border-radius: 26px;
+   box-shadow: inset 0 0 0 10px #abb78a;
+ }
+
+
+ .retro-frame3{
+   border: #8b966c, solid, 10px;
+   border-radius: 20px;
+   box-shadow: inset 0 0 0 10px #8b966c;
+   background-color: #c4cfa3;
+ }
+
+ .snake{
+   border: var(--retro-bg-dark) 2px dotted;
+   background-color: #FFA12B;
+ }
+
+ .food {
+   background-color: #dedede;
+   border: #999 5px solid;
+ }
+
+
+
+
+ #retro-board {
+   border-radius: 100px;
+   display: grid;
+   grid-template-columns: repeat(20, 20px);
+   grid-template-rows: repeat(20, 20px) ;
+   margin: 5px;
+ }
+
+ .button{
+   position:relative;
+   display:inline-block;
+   margin:20px;
+ }
+ 
+ .button a{
+   color:white;
+   font-family:Helvetica, sans-serif;
+   font-weight:bold;
+   font-size:36px;
+   text-align: center;
+   text-decoration:none;
+   background-color:#FFA12B;
+   display:block;
+   position:relative;
+   padding:20px 40px;
+   
+   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+   text-shadow: 0px 1px 0px #000;
+   filter: dropshadow(color=#000, offx=0px, offy=1px);
+   
+   -webkit-box-shadow:inset 0 1px 0 #FFE5C4, 0 10px 0 #915100;
+   -moz-box-shadow:inset 0 1px 0 #FFE5C4, 0 10px 0 #915100;
+   box-shadow:inset 0 1px 0 #FFE5C4, 0 10px 0 #915100;
+   
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+ }
+ 
+ .button a:active{
+   top:10px;
+   background-color:#F78900;
+   
+   -webkit-box-shadow:inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #915100;
+   -moz-box-shadow:inset 0 1px 0 #FFE5C4, inset 0 -3pxpx 0 #915100;
+   box-shadow:inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #915100;
+ }
+ 
+ .button:after{
+   content:"";
+   height:100%;
+   width:100%;
+   padding:4px;
+   position: absolute;
+   bottom:-15px;
+   left:-4px;
+   z-index:-1;
+   background-color:#2B1800;
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+ }
+ 
+ @media only screen and (min-width: 1200px) {
+ }
+ @media only screen and (min-width: 992px) {
+ }
+ @media only screen and (min-width: 768px) {
+ }
+ @media only screen and (min-width: 600px) {
+ }
+ @media only screen and (max-width: 600px) {
+ }
+ @media only screen and (max-width: 500px) {
+ }
+ @media only screen and (max-width: 400px) {
+ }
