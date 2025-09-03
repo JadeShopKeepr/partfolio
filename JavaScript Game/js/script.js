@@ -1,9 +1,9 @@
 const gameBoard = document.getElementById('retro-board');
 let snake = [{ x: 10, y: 10 }];
-
+let direction = 'right';
+let foodPos = generateFood();
 function draw() {
   gameBoard.innerHTML = '';
-
   drawSnake();
   drawFood();
 }
@@ -26,7 +26,6 @@ function setPostion(element, postion) {
 }
 
 function drawFood() {
-  const foodPos = generateFood();
   const food = createGameElement('div', 'food');
   setPostion(food, foodPos);
   gameBoard.appendChild(food);
@@ -41,10 +40,23 @@ function generateFood() {
 function move() {
   const head = { ...snake[0] };
   switch (direction) {
-    case value:
+    case 'right':
+      head.x++;
       break;
-
-    default:
+    case 'left':
+      head.x--;
+      break;
+    case 'up':
+      head.y--;
+      break;
+    case 'down':
+      head.y++;
       break;
   }
+  snake.unshift(head);
 }
+
+setInterval(() => {
+  move();
+  draw();
+}, 200);
