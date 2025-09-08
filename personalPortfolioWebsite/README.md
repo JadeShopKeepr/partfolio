@@ -1,69 +1,49 @@
-# React + TypeScript + Vite
+# 🐕 REACT DOGGEE
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**DOGGEE** — веб-сервіс для власників собак та любителів собак, створений за допомогою **ReactJS**.  
+Мета цього пет-проєкту — отримати досвід роботи з актуальними веб-технологіями.
 
-Currently, two official plugins are available:
+> Цей репозиторій містить лише сторінки **авторизації** та **реєстрації**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ⚙️ Технології та конфігурація
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Create React App + CRACO**
+- **TypeScript**
+- **ESLint (Airbnb)**
+- **Prettier**
+- **React Hooks**
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 🛠 Кастомні реалізації
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Fetch API Class** (`src/utils/api`) — клас для роботи з REST API через `fetch`
+- **i18n** (`src/utils/intl`) — інструмент для локалізації React-застосунку
+- **Theming (CSS Variables)** (`src/features/theming` + `src/static/theme`) — зміна теми застосунку через **React Context** та глобальні CSS-перемінні
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ⚡ Hooks
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **useForm** (`src/hooks/form`) — для зручного керування станом форм
+- **useMutation, useQuery, useQueryLazy** (`src/hooks/api`) — для роботи з REST API всередині компонентів
+
+---
+
+## 🎨 Components / UI Kit
+
+- **Input**, **Button**
+- **Select**
+- **Calendar** — календар, реалізований через **JS Date API**
+
+---
+
+## 🎨 CSS
+
+- **CSS Modules** + повністю адаптивна верстка
+
+---
+
+> ⚠️ Можливі баги та недопрацювання — головна мета була в експериментах та спробах реалізувати власні варіанти рішень.
