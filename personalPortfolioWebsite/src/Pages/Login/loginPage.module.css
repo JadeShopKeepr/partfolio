@@ -6,19 +6,34 @@ main {
   align-items: center;
 }
 .container {
+  height: 500px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background-color: #fff;
   box-shadow:
-    opx,
+    o,
     4px,
     50px,
     2px rgba(0, 0, 0, 0.15);
   border-radius: 20px;
 }
 
+.header {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 10px;
+  border-radius: 20px 20px 0 0;
+  background-color: #f5c678;
+  background-image: url(../../assets/Vector.svg);
+  color: white;
+  font-weight: 800;
+  font-size: 40px;
+}
 .form_body {
   padding: 0 100px;
 }
@@ -26,4 +41,23 @@ main {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
+}
+
+.checkbox {
+  display: flex;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.checkbox p {
+  padding-left: 5px;
+}
+
+.signUp {
+  font-size: 12px;
+  font-weight: 600;
+  color: #f5c678;
+  text-align: center;
+  margin-bottom: 15px;
+  cursor: pointer;
 }
