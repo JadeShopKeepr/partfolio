@@ -3,6 +3,7 @@
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
+    "types": ["node"],
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -10,7 +11,7 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
@@ -18,8 +19,8 @@
     "baseUrl": "./src",
     "paths": {
       "@common": ["./common"],
-      "@common/*": ["./common/*"]
-      //  "@pages": ["./pages"],
+      "@common/*": ["common/*"],
+      "@pages": ["Pages/*"]
       // "@static/*": ["./static/*"],
       // "@utils/helpers": ["./utils/helpers"],
       // "@utils/constants": ["./utils/constants"],

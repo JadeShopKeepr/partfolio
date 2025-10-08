@@ -1,6 +1,6 @@
-import React, { use } from 'react';
-import { Input } from '../../common';
-import { FormButton } from '../../common';
+import React from 'react';
+import { Input } from '@common';
+import { FormButton } from '@common';
 import styles from './loginPage.module.css';
 
 export const LoginPage = () => {
@@ -70,7 +70,7 @@ export const LoginPage = () => {
               })}
             />
             <div className={styles.checkbox}>
-              <img src='./src/assets/Exclude.svg' alt='' />
+              <img src='./src/assets/Exclude.svg' alt='#' />
               <p>Запам'ятати вас</p>
             </div>
           </div>
