@@ -1,17 +1,25 @@
-import { LoginPage } from './Pages/Login/loginPage';
-import { BrowserRouter } from 'react-router';
+import React from 'react';
+import { RegPage, LoginPage, NotFoundPage } from '@pages';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router';
 import './App.css';
-import { Routes } from 'react-router';
-import { Route } from 'react-router';
+
+const AuthRoutes = () => (
+  <Routes>
+    <Route path='/auth' element={<LoginPage />} />
+    <Route path='/registration' element={<RegPage />} />
+    <Route path='/*' element={<Navigate to='/auth' />} />
+  </Routes>
+);
+
+const MainRoutes = () => (
+  <Routes>
+    <Route path='*' element={<NotFoundPage />} />
+  </Routes>
+);
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<LoginPage />} />
-      </Routes>
-    </BrowserRouter>
-  );
+  const [isAuth, setIsAuth] = React.useState(false);
+  return <BrowserRouter>{isAuth ? <MainRoutes /> : <AuthRoutes />}</BrowserRouter>;
 }
 
 export default App;

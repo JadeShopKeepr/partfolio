@@ -20,7 +20,7 @@
     "paths": {
       "@common": ["./common"],
       "@common/*": ["common/*"],
-      "@pages": ["Pages/*"]
+      "@pages": ["./Pages"]
       // "@static/*": ["./static/*"],
       // "@utils/helpers": ["./utils/helpers"],
       // "@utils/constants": ["./utils/constants"],

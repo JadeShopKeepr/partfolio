@@ -1,9 +1,11 @@
 import React from 'react';
-import { Input } from '@common';
+import { useNavigate } from 'react-router';
+import { Input, PasswordInput } from '@common';
 import { FormButton } from '@common';
 import styles from './loginPage.module.css';
 
 export const LoginPage = () => {
+  const navigate = useNavigate();
   const validateIsEmpty = (value: string) => {
     if (!value) return 'щось тут має написано';
     return null;
@@ -53,7 +55,7 @@ export const LoginPage = () => {
             />
           </div>
           <div className={styles.input_container}>
-            <Input
+            <PasswordInput
               isError={!!formErrors['password']}
               value={formValues.password}
               placeholder='пароль'
@@ -76,7 +78,9 @@ export const LoginPage = () => {
           </div>
           <FormButton>Увійти</FormButton>
         </div>
-        <div className={styles.signUp}>немає аккаунта?</div>
+        <div onClick={() => navigate('/registration')} className={styles.signUp}>
+          немає аккаунта?
+        </div>
       </div>
     </main>
   );
