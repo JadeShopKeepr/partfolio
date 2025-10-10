@@ -1,63 +1,60 @@
 main {
-  width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .container {
-  height: 500px;
+  width: 35.71rem;
+  height: 42.85rem;
+  border-radius: 1.42rem;
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff;
+  flex-direction: column;
+  background: #fff;
   box-shadow:
     o,
     4px,
     50px,
     2px rgba(0, 0, 0, 0.15);
-  border-radius: 20px;
 }
 
 .header {
-  width: 100%;
-  height: 120px;
+  font-weight: 800;
+  font-style: normal;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  padding-bottom: 10px;
-  border-radius: 20px 20px 0 0;
+  align-items: end;
+  padding-top: 1.14rem;
+  height: 10.71rem;
+  width: 100%;
+  border-radius: 1.42rem 1.42rem 0 0;
   background-color: #f5c678;
   background-image: url(../../assets/Vector.svg);
-  color: white;
-  font-weight: 800;
-  font-size: 40px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 2.85rem;
+  color: #fff;
 }
 .form_body {
-  padding: 0 100px;
-}
-.input_container {
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 8.92rem;
 }
-
-.checkbox {
-  display: flex;
-  font-size: 10px;
-  cursor: pointer;
-}
-
-.checkbox p {
-  padding-left: 5px;
+.input_container {
+  margin-bottom: 1.07rem;
+  width: 100%;
 }
 
 .signUp {
-  font-size: 12px;
+  margin-bottom: 1.07rem;
+  align-items: center;
   font-weight: 600;
+  font-size: 1rem;
   color: #f5c678;
-  text-align: center;
-  margin-bottom: 15px;
   cursor: pointer;
 }

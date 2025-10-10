@@ -40,7 +40,7 @@ export const LoginPage = () => {
           <div className={styles.input_container}>
             <Input
               value={formValues.username}
-              placeholder='юзернейм'
+              label='юзернейм'
               name='username'
               onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                 const username = event.target.value;
@@ -58,8 +58,7 @@ export const LoginPage = () => {
             <PasswordInput
               isError={!!formErrors['password']}
               value={formValues.password}
-              placeholder='пароль'
-              type='password'
+              label='пароль'
               onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                 const password = event.target.value;
                 setFormValues({ ...formValues, password });
@@ -71,10 +70,6 @@ export const LoginPage = () => {
                 helperText: formErrors.password,
               })}
             />
-            <div className={styles.checkbox}>
-              <img src='./src/assets/Exclude.svg' alt='#' />
-              <p>Запам'ятати вас</p>
-            </div>
           </div>
           <FormButton>Увійти</FormButton>
         </div>
