@@ -3,9 +3,10 @@
   display: flex;
   background: rgba(237, 237, 237, 0.7);
   border-radius: 5px;
-  padding: 15px;
+  padding: 20px 15px 9px;
   width: 100%;
   height: 48px;
+  cursor: text;
 }
 
 .input_label {
@@ -20,15 +21,42 @@
     font-size 150ms ease-out;
   text-transform: capitalize;
 }
+.focused .input_label {
+  transform: translateX(-10%) translateY(-75%);
+  font-size: 10px;
+}
 
 .input {
   border: none;
   width: 100%;
   font-size: 14px;
   background-color: transparent;
+  padding-top: 5px;
+}
+input:active,
+input:focus {
+  outline: none;
+}
+input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
 }
 
-.focused .input_label {
-  transform: translateX(-10%) translateY(-75%);
+input:hover .input {
+  background-color: rgba(237, 237, 237);
+}
+
+.input_icon {
+  right: 5%;
+  top: 25%;
+  cursor: pointer;
+}
+
+.error {
+  background: #db39398a !important;
+}
+.helperText {
+  padding-left: 15px;
+  color: #e36464;
   font-size: 10px;
+  line-height: 14px;
 }

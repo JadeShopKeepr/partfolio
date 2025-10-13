@@ -1,0 +1,27 @@
+.checkbox {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.custom_checkbox {
+  display: inline-block;
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  background-color: transparent;
+  border: 2px rgba(245, 198, 120, 0.7) solid;
+  border-radius: 5px;
+}
+
+.custom_checkbox:hover {
+  border: 2px rgba(245, 198, 120) solid;
+}
+.checkbox:checked ~ .custom_checkbox {
+  border: none;
+  background-image: url(../../../../assets/checked.svg);
+}

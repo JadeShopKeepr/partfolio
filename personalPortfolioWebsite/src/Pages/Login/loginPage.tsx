@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
-import { Input, PasswordInput } from '@common';
+import { CheckBox, Input, PasswordInput } from '@common';
 import { FormButton } from '@common';
 import styles from './loginPage.module.css';
 
@@ -30,7 +30,7 @@ export const LoginPage = () => {
     username: string | null;
     password: string | null;
   }
-  const [formValues, setFormValues] = React.useState({ username: '', password: '' });
+  const [formValues, setFormValues] = React.useState({ username: '', password: '', notMyDevice: false });
   const [formErrors, setFormErrors] = React.useState<{ [key: string]: string | null }>({ username: null, password: null });
   return (
     <main>
@@ -69,6 +69,16 @@ export const LoginPage = () => {
                 isError: !!formErrors.password,
                 helperText: formErrors.password,
               })}
+            />
+          </div>
+          <div className={styles.checkbox}>
+            <CheckBox
+              label='Це не мій девайс'
+              checked={formValues.notMyDevice}
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                const notMyDevice = !event.target.checked;
+                setFormValues({ ...formValues, notMyDevice });
+              }}
             />
           </div>
           <FormButton>Увійти</FormButton>

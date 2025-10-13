@@ -31,6 +31,6 @@
       //"@features/*": ["./features/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.d.ts"],
   "extends": "./tsconfig.app.json"
 }

@@ -1,12 +1,6 @@
 import React from 'react';
 import styles from './input.module.css';
 
-interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'placeholder'> {
-  isError?: boolean;
-  helperText?: string;
-  label: string;
-}
-
 export const Input: React.FC<InputProps> = ({ isError = false, helperText, label, ...props }) => {
   const inputRef = React.useRef<HTMLInputElement>(null);
   const [isFocused, setIsFocused] = React.useState(!!props.value ?? false);
@@ -24,12 +18,12 @@ export const Input: React.FC<InputProps> = ({ isError = false, helperText, label
         <input
           className={styles.input}
           onBlur={() => {
-            setIsFocused(false);
+            !props.value && setIsFocused(false);
           }}
           {...props}
         />
-        {/* {isError && helperText && <div className={styles.helperText}>{helperText}</div>} */}
       </div>
+      {isError && helperText && <div className={styles.helperText}>{helperText}</div>}
     </>
   );
 };
