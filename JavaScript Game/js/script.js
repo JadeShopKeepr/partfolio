@@ -2,6 +2,12 @@ const gameBoard = document.getElementById('retro-board');
 let snake = [{ x: 10, y: 10 }];
 let direction = 'right';
 let foodPos = generateFood();
+let gameInterval;
+let gameSpeedDelay = 200;
+let gameStarted = false;
+const instruction = document.getElementById('instruction');
+const instructionStop = document.getElementById('instructionStop');
+const logo = document.getElementById('logo');
 function draw() {
   gameBoard.innerHTML = '';
   drawSnake();
@@ -54,9 +60,24 @@ function move() {
       break;
   }
   snake.unshift(head);
+  if (head.x === foodPos.x && head.y === foodPos.y) {
+    food = generateFood();
+    clearInterval();
+    gameInterval = setInterval(() => {
+      move();
+      draw();
+    }, gameSpeedDelay);
+  } else {
+    snake.pop();
+  }
 }
 
-setInterval(() => {
-  move();
-  draw();
-}, 200);
+function start() {
+  gameStarted = true;
+  instruction.style.display = 'none';
+  gameInterval = setInterval(() => {
+    move();
+    //checkColl();
+    draw();
+  }, gameSpeedDelay);
+}
