@@ -72,16 +72,19 @@ export const LoginPage = () => {
             />
           </div>
           <div className={styles.checkbox}>
-            <CheckBox
-              label='Це не мій девайс'
-              checked={formValues.notMyDevice}
-              onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                const notMyDevice = !event.target.checked;
-                setFormValues({ ...formValues, notMyDevice });
-              }}
-            />
+            <div className={styles.input_container}>
+              <CheckBox
+                label='Це не мій девайс'
+                checked={formValues.notMyDevice}
+                onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                  console.log(event.target.checked);
+                  const notMyDevice = event.target.checked;
+                  setFormValues({ ...formValues, notMyDevice });
+                }}
+              />
+            </div>
           </div>
-          <FormButton>Увійти</FormButton>
+          <FormButton isLoading>Увійти</FormButton>
         </div>
         <div onClick={() => navigate('/registration')} className={styles.signUp}>
           немає аккаунта?

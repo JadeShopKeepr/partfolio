@@ -1,3 +1,9 @@
+.checkbox_container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
 .checkbox {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -10,7 +16,6 @@
 
 .custom_checkbox {
   display: inline-block;
-  cursor: pointer;
   height: 15px;
   width: 15px;
   background-color: transparent;
@@ -24,4 +29,10 @@
 .checkbox:checked ~ .custom_checkbox {
   border: none;
   background-image: url(../../../../assets/checked.svg);
+}
+
+.checkbox_label {
+  display: inline-block;
+  font-size: 12px;
+  margin-left: 5px;
 }
