@@ -1,7 +1,7 @@
 # 💼 Personal Portfolio
 
 Welcome to my portfolio repository!  
-Here I’ve collected a set of projects that showcase my skills in **web development, JavaScript, API integration, responsive design, and open-source contributions**.
+Here I’ve collected a set of projects that showcase my skills in **web development, JavaScript\Typescript, API integration, responsive design, and open-source contributions**.
 
 ---
 
