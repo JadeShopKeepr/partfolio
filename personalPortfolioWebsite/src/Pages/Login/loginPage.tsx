@@ -36,7 +36,7 @@ export const LoginPage = () => {
     <main>
       <div className={styles.container}>
         <div className={styles.header}>DOGEEE</div>
-        <div className={styles.form_body}>
+        <form className={styles.form_body}>
           <div className={styles.input_container}>
             <Input
               value={formValues.username}
@@ -85,7 +85,7 @@ export const LoginPage = () => {
             </div>
           </div>
           <FormButton isLoading>Увійти</FormButton>
-        </div>
+        </form>
         <div onClick={() => navigate('/registration')} className={styles.signUp}>
           немає аккаунта?
         </div>

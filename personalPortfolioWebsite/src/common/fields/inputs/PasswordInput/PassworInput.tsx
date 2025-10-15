@@ -1,9 +1,9 @@
 import React from 'react';
+import type { InputProps } from '../input.d';
 import styles from '@common/fields/inputs/input.module.css';
 
 export const PasswordInput: React.FC<InputProps> = ({ isError = false, helperText, label, ...props }) => {
   const inputRef = React.useRef<HTMLInputElement>(null);
-  const [isFocused, setIsFocused] = React.useState(!!props.value ?? false);
   const [showToggle, setShowToggle] = React.useState(false);
   const showPassToggle = props.value;
   return (
@@ -11,20 +11,12 @@ export const PasswordInput: React.FC<InputProps> = ({ isError = false, helperTex
       <div
         onClick={() => {
           inputRef.current?.focus();
-          setIsFocused(true);
         }}
-        className={`${styles.input_container} ${isError ? styles.input_container : ''} ${isFocused ? styles.focused : ''}`}>
+        className={`${styles.input_container} ${isError ? styles.input_container : ''}`}>
+        <input className={styles.input} type={showPassToggle && showToggle ? 'text' : 'password'} {...props} />
         <label htmlFor='' className={styles.input_label}>
           {label}
         </label>
-        <input
-          className={styles.input}
-          type={showPassToggle && showToggle ? 'text' : 'password'}
-          onBlur={() => {
-            !props.value && setIsFocused(false);
-          }}
-          {...props}
-        />
         {showPassToggle && (
           <div
             className={styles.input_icon}

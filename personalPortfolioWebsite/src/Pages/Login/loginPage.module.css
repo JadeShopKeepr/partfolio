@@ -5,8 +5,7 @@ main {
   align-items: center;
 }
 .container {
-  width: 35.71rem;
-  height: 42.85rem;
+  width: 600px;
   border-radius: 1.42rem;
   display: flex;
   justify-content: space-between;
@@ -30,7 +29,7 @@ main {
   height: 10.71rem;
   width: 100%;
   border-radius: 1.42rem 1.42rem 0 0;
-  background-color: #f5c678;
+  background-color: var(--primary);
   background-image: url(../../assets/Vector.svg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -47,7 +46,6 @@ main {
 }
 .checkbox {
   width: 100%;
-  justify-content: flex-start;
 }
 
 .input_container {
@@ -59,7 +57,7 @@ main {
   margin-bottom: 1.07rem;
   align-items: center;
   font-weight: 600;
-  font-size: 1rem;
-  color: #f5c678;
+  font-size: 14px;
+  color: var(--primary);
   cursor: pointer;
 }
