@@ -2,43 +2,66 @@ import React from 'react';
 import { useNavigate } from 'react-router';
 import { CheckBox, Input, PasswordInput } from '@common';
 import { FormButton } from '@common';
+import { useMutation } from '../../utils/hooks/api';
 import styles from './loginPage.module.css';
+
+const validateIsEmpty = (value: string) => {
+  if (!value) return 'щось тут має написано';
+  return null;
+};
+const validateUsername = (value: string) => {
+  return validateIsEmpty(value);
+};
+const validatePassword = (value: string) => {
+  return validateIsEmpty(value);
+};
+
+const validateSchema = {
+  username: validateUsername,
+  password: validatePassword,
+};
+
+const validateLoginForm = (name: keyof typeof validateSchema, value: string) => {
+  return validateSchema[name](value);
+};
+
+interface User {
+  username: string;
+  password: string;
+  id: string;
+}
 
 export const LoginPage = () => {
   const navigate = useNavigate();
-  const validateIsEmpty = (value: string) => {
-    if (!value) return 'щось тут має написано';
-    return null;
-  };
-  const validateUsername = (value: string) => {
-    return validateIsEmpty(value);
-  };
-  const validatePassword = (value: string) => {
-    return validateIsEmpty(value);
-  };
-
-  const validateSchema = {
-    username: validateUsername,
-    password: validatePassword,
-  };
-
-  const validateLoginForm = (name: keyof typeof validateSchema, value: string) => {
-    return validateSchema[name](value);
-  };
+  const [formValues, setFormValues] = React.useState({ username: '', password: '', notMyDevice: false });
+  const [formErrors, setFormErrors] = React.useState<{ [key: string]: string | null }>({ username: null, password: null });
 
   interface formErrors {
     username: string | null;
     password: string | null;
   }
-  const [formValues, setFormValues] = React.useState({ username: '', password: '', notMyDevice: false });
-  const [formErrors, setFormErrors] = React.useState<{ [key: string]: string | null }>({ username: null, password: null });
+
+  const {
+    mutation: AuthMutation,
+    isError,
+    isLoading: AuthLoading,
+    status,
+  } = useMutation<typeof formValues, User>('http://localhost:5050/auth', 'POST');
+
   return (
     <main>
       <div className={styles.container}>
-        <div className={styles.header}>DOGEEE</div>
-        <form className={styles.form_body}>
+        <div className={styles.header}>DOGGEE</div>
+        <form
+          className={styles.form_body}
+          onSubmit={async (event: React.FormEvent<HTMLFormElement>) => {
+            event.preventDefault();
+            const response = await AuthMutation(formValues);
+            console.log('🚀 ~ response:', response);
+          }}>
           <div className={styles.input_container}>
             <Input
+              disabled={AuthLoading}
               value={formValues.username}
               label='юзернейм'
               name='username'
@@ -56,6 +79,7 @@ export const LoginPage = () => {
           </div>
           <div className={styles.input_container}>
             <PasswordInput
+              disabled={AuthLoading}
               isError={!!formErrors['password']}
               value={formValues.password}
               label='пароль'
@@ -74,6 +98,7 @@ export const LoginPage = () => {
           <div className={styles.checkbox}>
             <div className={styles.input_container}>
               <CheckBox
+                disabled={AuthLoading}
                 label='Це не мій девайс'
                 checked={formValues.notMyDevice}
                 onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
@@ -84,7 +109,7 @@ export const LoginPage = () => {
               />
             </div>
           </div>
-          <FormButton isLoading>Увійти</FormButton>
+          <FormButton type='submit'>Увійти</FormButton>
         </form>
         <div onClick={() => navigate('/registration')} className={styles.signUp}>
           немає аккаунта?

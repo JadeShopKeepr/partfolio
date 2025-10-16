@@ -19,13 +19,11 @@
     "baseUrl": "./src",
     "paths": {
       "@common": ["./common"],
-      "@common/*": ["common/*"],
-      "@pages": ["./Pages"]
-      // "@static/*": ["./static/*"],
+      "@pages": ["./Pages"],
+      "@utils": ["./utils"]
       // "@utils/helpers": ["./utils/helpers"],
       // "@utils/constants": ["./utils/constants"],
       // "@utils/api": ["./utils/api"],
-      // "@utils/hooks": ["./utils/hooks"],
       // "@utils/contextes": ["./utils/contextes"],
       // "@features": ["./features"],
       //"@features/*": ["./features/*"]
