@@ -9,7 +9,7 @@
 
 ## ⚙️ Технології та конфігурація
 
-- **Create React App + CRACO**
+- **Vite**
 - **TypeScript**
 - **ESLint (Airbnb)**
 - **Prettier**
