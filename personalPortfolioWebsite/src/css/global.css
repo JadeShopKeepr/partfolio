@@ -1,7 +1,21 @@
 :root {
   /* colors */
-  --primary: #f5c678;
-  --primary7: #f5c678b3;
+  --color-accent: #f5c678;
+  --color-accent7: rgba(245, 197, 120, 0.7);
+  --color-additional: #93b1ff;
+  --color-additional7: rgba(147, 178, 255, 0.7);
+  --color-validation: #db3939;
+  --color-validation7: rgba(219, 57, 57, 0.7);
+
+  --color-text: #0000;
+  --color-placeholder: rgba(0, 0, 0, 0.5);
+  --color-field-focused: #ededed;
+  --background-color-field: rgba(237, 237, 237, 0.7);
+  --background-color: #fff;
+
+  --shadow-container: 0px 4px 50px 2px rgba(0, 0, 0, 0.15);
+  --shadow-button: 0px 2px 10px 2px rgba(0, 0, 0, 0.15);
+  --shadow-button-hover: 0px 2px 10px rgba(0, 0, 0, 0.05);
 
   /* images */
 
