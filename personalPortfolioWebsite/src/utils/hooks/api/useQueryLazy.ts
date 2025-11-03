@@ -1,41 +1,37 @@
 import React from 'react';
 
 interface ApiSuccessResponse<T> {
-  data: T;
   success: true;
 }
 interface ApiFailureResponse<T> {
-  data: { message: string };
   success: false;
 }
-
 type ApiResponse<T> = ApiSuccessResponse<T> | ApiFailureResponse<T>;
-export const useQuery = <K>(url: string, deps: React.DependencyList = [], config?: Omit<RequestInit, 'method'>) => {
+
+export const useQueryLazy = <T, K>(url: string, config?: Omit<RequestInit, 'method'>) => {
   const [status, setStatus] = React.useState(0);
   const [isLoading, setIsLoading] = React.useState(false);
-  const [isError, seIsError] = React.useState('');
-  const [data, setData] = React.useState<K | null>(null);
+  const [error, setError] = React.useState('');
 
-  React.useEffect(() => {
+  const query = React.useCallback(async (): Promise<ApiResponse<K>> => {
     setIsLoading(true);
     try {
-      fetch(url, {
+      const response = await fetch(url, {
         credentials: 'same-origin',
         ...config,
         method: 'GET',
         headers: { 'Content-Type': 'application/json', ...(!!config?.headers && config.headers) },
-      }).then(async (response) => {
-        const responseData = (await response.json()) as K;
-        setStatus(response.status);
-        setData(responseData);
       });
+      setStatus(response.status);
+      return (await response.json()) as ApiResponse<K>;
     } catch (e) {
       setIsLoading(false);
-      seIsError((e as Error).message);
+      setError((e as Error).message);
+      return { success: false, data: { message: (e as Error).message } } as ApiResponse<K>;
     } finally {
       setIsLoading(false);
     }
-  }, deps);
+  }, []);
 
-  return { data, isLoading, isError, status };
+  return { query, error, isLoading, status };
 };

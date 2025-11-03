@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router';
 import { CheckBox, Input, PasswordInput } from '@common';
 import { FormButton } from '@common';
-import { useMutation } from '../../utils/hooks/api';
+import { useMutation, useQueryLazy } from '../../utils/hooks/api';
 import styles from './loginPage.module.css';
 
 const validateIsEmpty = (value: string) => {
@@ -36,11 +36,6 @@ export const LoginPage = () => {
   const [formValues, setFormValues] = React.useState({ username: '', password: '', notMyDevice: false });
   const [formErrors, setFormErrors] = React.useState<{ [key: string]: string | null }>({ username: null, password: null });
 
-  interface formErrors {
-    username: string | null;
-    password: string | null;
-  }
-
   const {
     mutation: AuthMutation,
     isError,
@@ -48,6 +43,12 @@ export const LoginPage = () => {
     status,
   } = useMutation<typeof formValues, User>('http://localhost:5050/auth', 'POST');
 
+  const { query } = useQueryLazy<User>('http://localhost:5050/users');
+
+  interface formErrors {
+    username: string | null;
+    password: string | null;
+  }
   return (
     <main>
       <div className={styles.container}>
@@ -56,7 +57,8 @@ export const LoginPage = () => {
           className={styles.form_body}
           onSubmit={async (event: React.FormEvent<HTMLFormElement>) => {
             event.preventDefault();
-            const response = await AuthMutation(formValues);
+            //const response = await AuthMutation(formValues);
+            const response = await query();
             console.log('🚀 ~ response:', response);
           }}>
           <div className={styles.input_container}>
